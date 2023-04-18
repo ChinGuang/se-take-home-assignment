@@ -67,6 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   Text("Cooking Bots:"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text("Cooking Bot No."),
+                      Text("Processing Order No.")
+                    ],
+                  ),
                   Column(
                     children: List<Widget>.generate(cookingBots.length, (index) => Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -81,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Flexible(
               child: Wrap(
+                spacing: 5.0,
                 children: [
                   ElevatedButton(onPressed: () {
                     Order newOrder = Order(isVip: false);
