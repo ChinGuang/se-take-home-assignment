@@ -41,10 +41,12 @@ class OrderController{
 
   List<CookingBot> readBots() => _botList;
   void deleteBot() {
-    CookingBot bot = _botList.removeLast();
-    if(bot.processingOrder != null) {
-      bot.processingOrder?.assignedBot = null;
-      stopProcessing(bot.processingOrder!);
+    if(_botList.isNotEmpty) {
+      CookingBot bot = _botList.removeLast();
+      if (bot.processingOrder != null) {
+        bot.processingOrder?.assignedBot = null;
+        stopProcessing(bot.processingOrder!);
+      }
     }
   }
   Order? readIdleOrder(){
