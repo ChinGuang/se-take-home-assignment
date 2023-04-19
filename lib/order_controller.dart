@@ -12,7 +12,6 @@ class OrderController{
 
   void createOrder(Order order, {required Function() completedCallback}) {
     _orderList.add(order);
-    print("Order created");
     order.timer = TimerService(callback: completedCallback);
     CookingBot? bot = readIdleBot();
     if(bot!= null){
@@ -28,7 +27,6 @@ class OrderController{
   }
   List<Order> readCompletedOrders() => _orderList.where((element) => element.orderStatus == OrderStatus.completed).toList();
   void createBot(CookingBot bot){
-    print("functionExecuted");
     try {
       _botList.add(bot);
       Order? idleOrder = readIdleOrder();

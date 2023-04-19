@@ -64,26 +64,29 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Flexible(
-              child: Column(
-                children: [
-                  Text("Cooking Bots:"),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text("Cooking Bot No."),
-                      Text("Processing Order No.")
-                    ],
-                  ),
-                  Column(
-                    children: List<Widget>.generate(cookingBots.length, (index) => Row(
+              fit: FlexFit.tight,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Text("Cooking Bots:"),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text("${cookingBots[index].id}", ),
-                        Text(cookingBots[index].processingOrder != null ? "${cookingBots[index].processingOrder!.id}" : "Idle", style: TextStyle(color: cookingBots[index].processingOrder?.isVip ?? false ? Colors.amber: Colors.black),),
+                        Text("Cooking Bot No."),
+                        Text("Processing Order No.")
                       ],
-                    )),
-                  ),
-                ],
+                    ),
+                    Column(
+                      children: List<Widget>.generate(cookingBots.length, (index) => Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text("${cookingBots[index].id}", ),
+                          Text(cookingBots[index].processingOrder != null ? "${cookingBots[index].processingOrder!.id}" : "Idle", style: TextStyle(color: cookingBots[index].processingOrder?.isVip ?? false ? Colors.amber: Colors.black),),
+                        ],
+                      )),
+                    ),
+                  ],
+                ),
               ),
             ),
             Flexible(
